@@ -1,55 +1,67 @@
-/* General Styles */
+/* General Layout */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0;
-    background-color: #f4f7f6;
     color: #333;
+    background-color: #f9f9f9;
 }
 
-/* Header & Navigation */
 header {
-    background: #2c3e50;
-    color: #ffffff;
-    padding: 1rem 0;
+    background: #004a80; /* Petrobras Blue */
+    color: white;
+    padding: 40px 20px;
     text-align: center;
-    border-bottom: 3px solid #3498db;
+}
+
+nav {
+    background: #003359;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 nav a {
     color: white;
+    text-decoration: none;
     margin: 0 15px;
-    text-decoration: none;
     font-weight: bold;
-}
-
-/* Hero Section */
-.hero {
-    background: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-}
-
-.btn-primary {
-    display: inline-block;
-    background: #3498db;
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px 0;
     font-size: 0.9rem;
-    color: #777;
+}
+
+nav a:hover {
+    color: #ffcc00; /* Yellow highlight */
+}
+
+/* Content Sections */
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #004a80;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+}
+
+.result-box {
+    background: #e7f3fe;
+    border-left: 5px solid #004a80;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+/* Footer & License */
+footer {
+    background: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    font-size: 0.85rem;
 }
