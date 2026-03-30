@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Performance | Arman Adabi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand"><span>Analysis By</span> Arman Adabi</a>
+            <div class="nav-links">
+                <a href="index.html">Overview</a>
+                <a href="industry.html">Industry</a>
+                <a href="performance.html" class="active">Performance</a>
+                <a href="valuation.html">Valuation</a>
+                <a href="feedback.html">Feedback</a> 
+                <a href="references.html">References</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="content">
+            <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Financials</h1>
+            <p style="font-size: 1.5rem; margin-top: 10px;">Historical Ratios and Cash Flow Analysis</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="content">
+            <h2>Profitability Ratios</h2>
+            <p>When analyzing financial ratios from petrobras from 2015 to 2024, it can be seen that the company has successfully improved from a period of extreme distress to a leader of the industry in efficiency in South America. The most significant improvement that can be seen is the trend in profitability ratios.</p>
+            <p>Petrobras's gross profit margin has seen a steady increase, it climbed from 30.65 in 2015 to 52.70 in 2023 and it continually outperformed the industry median. Something even more impressive is that the operating margin of the company peaked at 44.69% in 2022. Compared to the industry median of 4.65%, Petrobras's operational efficiency is an outlier, driven primarily by low lifting costs of pre-salt assets.</p>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+                <canvas id="profitChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-gray">
+        <div class="content">
+            <h2>Liquidity Ratios</h2>
+            <p>In comparison to profit ratios, liquidity ratios show an aggressive management style. The liquidity ratios show a downward trend because it went from 1.52 in 2015 to 0.69 in 2024 which is very low compared to the industry median of 1.23.</p>
+            <p>This downward trend suggests that the company moved toward a model which prioritizes cash outflows for dividends and debt repayment over a large capital formation, and buffer. The quick ratio of 2024 makes this argument even more solid and shows that Petrobras relies on heavily operating cash flows rather than liquid assets to meet short term obligations.</p>
+            
+            <div style="margin-top: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+                <canvas id="liquidityChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="content">
+            <h2>Strengths: Returns & Deleveraging</h2>
+            <p><strong>Best in returns:</strong> the return on equity is a standout strength. While in 2015 the return on equity was -9.31%, it rocketed to 52.73% in 2022. It remains significantly higher than the industry median of 2.70% with the normalization of 2024 to 10.93%.</p>
+            <p><strong>Aggressive deleveraging:</strong> The company’s debt/equity ratio has improved dramatically. It went from 1.71 in 2015 to 0.83 in 2024. This reduction in leverage has improved the interest coverage ratio which rose from -0.92 to a peak of 17.17 in 2022 which shows a much better credit profile, and the company’s successful management.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                <div style="padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+                    <canvas id="roeChart"></canvas>
+                </div>
+                <div style="padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+                    <canvas id="debtChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-gray">
+        <div class="content">
+            <h2>Weaknesses & Cash Flow</h2>
+            <p><strong>Weaknesses:</strong> Once major weakness is the valuation. Although one can see the profitability ratio of the petrobras, the market still suggests petrobras are sold at a discount compared to the other global peers. According to a report by IISD “Brazil has a real opportunity to lead on climate and future-proof its economy,'' says Joachim Roth, report co-author and Climate Policy Lead at the World Benchmarking Alliance. ''It can do this by redefining Petrobras's mandate, ending new oil and gas licences and aligning national and private sector transition plans through a whole-of-government approach.” and also “The Brazilian government can influence this path, both through policy actions and its controlling stake in Petrobras.” (“Petrobras oil rush a bad bet for Brazil, report shows”). This shows the sovereign risk which investors are concerned about Brazilian government ‘s influence.</p>
+            <p>Also, the company is very volatile. The cash conversion cycle has fluctuated, rising back to 33.41 days in 2024. When combined with a falling asset turnover from 0.69 in 2022 to 0.46 in 2024. It suggests that while the company is profitable, its efficiency in moving assets and managing cash slowed as it enters in a new investment cycle.</p>
+            <p>Based on the financial statements, Petrobras has maintained a positive cash flow for the majority of the last decade. Operating cash flow has been high which is one of the reasons the company has good health and it was peak in 2022 due to high production. The investing cash flow has been consistently negative but it peaked in 2019 and 2021 and it became less negative due to companies selling core assets like refineries. Financing cash flow has been deeply negative, especially in 2021-2023 and the driving factor is that Petrobras is trying to reduce debt and pay high dividend payments.</p>
+        </div>
+    </section>
+
+    <section class="section section-light download-section">
+        <div class="content">
+            <h2 style="font-size: 2rem; margin-bottom: 15px;">Project Data Files</h2>
+            <p style="margin-bottom: 30px;">For a comprehensive view of the financial modeling, ratios, and raw data, please download the master spreadsheet below.</p>
+            
+            <a href="Summary-Petrobras.xlsx" class="download-btn" download>
+                Download Master Spreadsheet <span>(.xlsx)</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+        <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+    </footer>
+
+    <script>
+        const years = ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
+        
+        new Chart(document.getElementById('profitChart').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [
+                    { label: 'Gross Margin %', data: [30.65, 31.92, 32.29, 35.64, 40.29, 45.62, 48.59, 52.21, 52.70, 50.29], borderColor: '#1d1d1f', tension: 0.3, fill: false },
+                    { label: 'Operating Margin %', data: [15.11, 17.73, 14.66, 24.29, 22.43, 30.76, 39.69, 44.69, 38.56, 28.10], borderColor: '#2997ff', tension: 0.3, fill: false, borderWidth: 3 },
+                    { label: 'Net Margin %', data: [-8.85, -5.34, 0.19, 7.76, 10.19, 1.77, 23.80, 29.53, 24.41, 8.32], borderColor: '#86868b', tension: 0.3, fill: false }
+                ]
+            },
+            options: { responsive: true, plugins: { title: { display: true, text: 'Profitability Trends (2015-2024)' } } }
+        });
+
+        new Chart(document.getElementById('liquidityChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: years,
+                datasets: [
+                    { label: 'Current Ratio', data: [1.52, 1.80, 1.89, 1.48, 0.97, 1.04, 1.25, 1.00, 0.96, 0.69], backgroundColor: '#1d1d1f' },
+                    { label: 'Quick Ratio', data: [1.20, 1.18, 1.28, 0.91, 0.54, 0.75, 0.78, 0.54, 0.68, 0.42], backgroundColor: '#2997ff' }
+                ]
+            },
+            options: { responsive: true, plugins: { title: { display: true, text: 'Liquidity Ratios (Declining Trend)' } } }
+        });
+
+        new Chart(document.getElementById('roeChart').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{ 
+                    label: 'Return on Equity (%)', 
+                    data: [-9.31, -6.81, -0.12, 9.48, 14.01, 1.72, 30.87, 52.73, 33.61, 10.93], 
+                    borderColor: '#2997ff', backgroundColor: 'rgba(41, 151, 255, 0.1)', fill: true, tension: 0.4 
+                }]
+            },
+            options: { responsive: true, plugins: { title: { display: true, text: 'Return on Equity (ROE)' } } }
+        });
+
+        new Chart(document.getElementById('debtChart').getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{ 
+                    label: 'Debt-to-Equity Ratio', 
+                    data: [1.71, 1.41, 1.28, 1.13, 1.05, 1.11, 0.72, 0.64, 0.65, 0.83], 
+                    borderColor: '#1d1d1f', backgroundColor: 'rgba(29, 29, 31, 0.1)', fill: true, tension: 0.3 
+                }]
+            },
+            options: { responsive: true, plugins: { title: { display: true, text: 'Deleveraging: Debt-to-Equity' } } }
+        });
+    </script>
+</body>
+</html>

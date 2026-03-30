@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valuation | Arman Adabi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand"><span>Analysis By</span> Arman Adabi</a>
+            <div class="nav-links">
+                <a href="index.html">Overview</a>
+                <a href="industry.html">Industry</a>
+                <a href="performance.html">Performance</a>
+                <a href="valuation.html" class="active">Valuation</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="references.html">References</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="content">
+            <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Valuation.</h1>
+            <p style="font-size: 1.5rem; margin-top: 10px;">Equity Valuation: DDM and DFCF Analysis</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="content">
+            <h2>Valuation Framework</h2>
+            <p>In this phase of the analysis, an equity valuation was performed utilizing the Dividend Discount Model (DDM). The DDM is a yield-focused approach that calculates the intrinsic value of a stock based on the present value of its future dividend payments. This model is highly suitable for Petrobras, as the company is recognized as one of the highest dividend payers in the global energy market. In contrast, the Discounted Free Cash Flow (DFCF) model values the entire enterprise based on the cash flow it generates after accounting for capital expenditures. According to Harvard Business School, "The discounted cash flow (DCF) model estimates a company’s intrinsic equity value by discounting projected future free cash flows to equity using the time value of money principle" (Einstein).</p>
+        </div>
+    </section>
+
+    <section class="section section-gray">
+        <div class="content">
+            <h2>Part 1: DDM Analysis & Growth Scenarios</h2>
+            <p>The valuation commenced with an analysis of Petrobras's dividend history from 2020 to 2024. A primary challenge in this analysis was the high volatility of the dividend growth rate, notably a massive spike in 2021. As this extreme growth rate skewed the data, making standard estimation unrealistic, a five-year median growth rate of -21.14% was utilized to project the five-year timeline. This methodological choice ensures the model reflects the recent cooling trend in dividend payouts rather than anomalous historical spikes.</p>
+            
+            <div style="margin-top: 30px; margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+                <canvas id="dividendChart"></canvas>
+            </div>
+
+            <p>Two distinct mathematical approaches were utilized to stress-test the terminal value assumptions. The first model assumes a <strong>long-run growth at a sustainable rate</strong> (calculated close to 0%). By discounting the projected dividends and terminal value against the cost of equity derived from Alpha Spread, an estimated intrinsic value of <strong>$6.00</strong> was produced, compared to the market price of $13.16. This significant divergence suggests that if the company continues to shrink its dividends at the historical median rate, the stock is currently overvalued by the market. However, the most critical assumption driving this result is the 0% terminal growth rate, indicating the market is likely pricing in more stability than this specific model implies.</p>
+            
+            <p>The second approach replaces the sustainable rate with an <strong>implied long-run growth rate</strong>. This secondary model yielded an even lower estimated value of <strong>$5.39</strong>. The mathematics of this scenario assume that dividends must decline sharply to justify the current risk-adjusted returns. It is important to note that macroeconomic stability plays a key role in Petrobras's valuation; should Brazil's sovereign and political stability improve, the high cost of equity (currently 16.6%) will decrease, which would proportionally elevate the intrinsic valuation.</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="content">
+            <h2>Part 2: Discounted Free Cash Flow (DFCF)</h2>
+            <p>For the final stage, the Discounted Free Cash Flow model was employed. This model captures the company’s internal value by discounting projected free cash flows at a Weighted Average Cost of Capital (WACC) of 14.25%. A five-year average EBIT/Sales margin of 29.87% and a normalized effective tax rate of 30.40% (to remove the 2020 outlier) were utilized for the projections. This framework produced an estimated enterprise value that results in an intrinsic stock price of <strong>$27.70</strong>.</p>
+            
+            <p>While the DDM suggested that Petrobras is overvalued due to shrinking dividend payouts, the DFCF model demonstrates that the underlying enterprise is significantly undervalued compared to the market value of $13.16. The current market price indicates that investors are balancing out the high operational profits against the uncertainty of state-controlled dividend policies. Ultimately, the DFCF model confirms that the company’s core operational assets are worth considerably more than the current market valuation implies, proving the company’s underlying efficiency.</p>
+
+            <div style="margin-top: 40px; margin-bottom: 40px; padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+                <canvas id="valuationChart"></canvas>
+            </div>
+            
+            <div class="download-section" style="padding: 20px 0 0 0; border-top: 1px solid #e5e5ea;">
+                <a href="Summary-Petrobras.xlsx" class="download-btn" download>
+                    Download Master Spreadsheet <span>(.xlsx)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+        <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+    </footer>
+
+    <script>
+        // 1. Dividend Volatility Chart
+        new Chart(document.getElementById('dividendChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{ 
+                    label: 'Dividend per Share ($)', 
+                    data: [0.09, 2.04, 6.45, 2.98, 2.35], 
+                    backgroundColor: '#2997ff',
+                    borderRadius: 6
+                }]
+            },
+            options: { 
+                responsive: true, 
+                plugins: { 
+                    title: { display: true, text: 'Dividend Volatility: The 2021-2022 Spike & Cooling Trend' },
+                    legend: { display: false }
+                } 
+            }
+        });
+
+        // 2. Valuation Target vs Market Price Chart
+        new Chart(document.getElementById('valuationChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                // Updated Labels to remove "Scenario 1/2"
+                labels: ['DDM (Sustainable Growth)', 'DDM (Implied Growth)', 'Current Market Price', 'DFCF Intrinsic Value'],
+                datasets: [{ 
+                    label: 'Price in USD ($)', 
+                    data: [6.00, 5.39, 13.16, 27.70], 
+                    backgroundColor: [
+                        '#86868b', 
+                        '#86868b', 
+                        '#1d1d1f', 
+                        '#2997ff'  
+                    ],
+                    borderRadius: 6
+                }]
+            },
+            options: { 
+                responsive: true, 
+                plugins: { 
+                    title: { display: true, text: 'Price Target Comparison: Models vs. Market Reality' },
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { callback: function(value) { return '$' + value; } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
