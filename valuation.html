@@ -6,130 +6,340 @@
     <title>Valuation | Arman Adabi</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Ultra-Compact, Scrollable Table Styling */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e5e5ea;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .master-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        .master-table th, .master-table td {
+            padding: 8px 10px;
+            text-align: right;
+            border-bottom: 1px solid #f5f5f7;
+            color: #515154;
+        }
+
+        .master-table th {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .master-table th:first-child,
+        .master-table td:first-child {
+            text-align: left;
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            font-weight: 600;
+        }
+
+        .master-table th:first-child { background-color: #eaeaea; }
+        .master-table td:first-child { background-color: #ffffff; border-right: 1px solid #e5e5ea; }
+        .master-table tbody tr:hover td { background-color: #fafafa; }
+        .master-table tbody tr:hover td:first-child { background-color: #fafafa; }
+
+        .category-row td {
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            background-color: #f5f5f7 !important;
+            text-align: left !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-top: 2px solid #e5e5ea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.7rem;
+        }
+    </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand"><span>Analysis By</span> Arman Adabi</a>
-            <div class="nav-links">
-                <a href="index.html">Overview</a>
-                <a href="industry.html">Industry</a>
-                <a href="performance.html">Performance</a>
-                <a href="valuation.html" class="active">Valuation</a>
-                <a href="feedback.html">Feedback</a>
-                <a href="references.html">References</a>
-            </div>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <span>Analysis By</span>
+            Arman Adabi
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="industry.html">Industry</a>
+            <a href="performance.html">Performance</a>
+            <a href="cost_of_capital.html">Cost of Capital</a>
+            <a href="valuation.html" class="active">Valuation</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="references.html">References</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
-        <div class="content">
-            <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Valuation.</h1>
-            <p style="font-size: 1.5rem; margin-top: 10px;">Equity Valuation: DDM and DFCF Analysis</p>
+<section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
+    <div class="content">
+        <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Valuation.</h1>
+        <p style="font-size: 1.5rem; margin-top: 10px;">Equity Valuation: DDM, DFCF, and Comparables</p>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="content content-wide">
+        <h2>Dividend Discount Model (DDM)</h2>
+        <p>The model serves as a highly pessimistic floor for the company’s valuation. This model strictly focuses on the dividends returned to the shareholders, factoring the normalization of the massive dividend spikes seen in 2022. Using a two stage approach with a 16.60%, the estimated price ranges from $5.49 to $6.22. This valuation assumes significant contractions in future payouts reflecting the political or economical shifts lead to a more restricted dividend payout policy. The following are Chevron and ExxonMobil which are considered to be very stable, and in comparison Petrobras’s dividend payout is highlighted in red.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea; max-width: 850px; margin-left: auto; margin-right: auto;">
+            <canvas id="dividendCompChart"></canvas>
         </div>
-    </section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Valuation Framework</h2>
-            <p>In this phase of the analysis, an equity valuation was performed utilizing the Dividend Discount Model (DDM). The DDM is a yield-focused approach that calculates the intrinsic value of a stock based on the present value of its future dividend payments. This model is highly suitable for Petrobras, as the company is recognized as one of the highest dividend payers in the global energy market. In contrast, the Discounted Free Cash Flow (DFCF) model values the entire enterprise based on the cash flow it generates after accounting for capital expenditures. According to Harvard Business School, "The discounted cash flow (DCF) model estimates a company’s intrinsic equity value by discounting projected future free cash flows to equity using the time value of money principle" (Einstein).</p>
+        <div class="table-wrapper">
+            <table class="master-table">
+                <thead>
+                <tr>
+                    <th>Dividend Discount Model</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                    <th>2022</th>
+                    <th>2023</th>
+                    <th>2024</th>
+                    <th>5Y Mean</th>
+                    <th>5Y Median</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>Dividend per Share</td><td>$0.09</td><td>$2.04</td><td>$6.45</td><td>$2.98</td><td>$2.35</td><td>$2.78</td><td>$2.35</td></tr>
+                <tr><td>Dividend Growth Rate</td><td>-59.00%</td><td>2166.67%</td><td>216.18%</td><td>-53.80%</td><td>-21.14%</td><td>449.78%</td><td>-21.14%</td></tr>
+                <tr><td>Dividend Payout Rate (%)</td><td>52.16%</td><td>7.15%</td><td>114.79%</td><td>78.00%</td><td>202.33%</td><td>102.87%</td><td>47.00%</td></tr>
+                <tr><td>Trailing Dividend Yield (%)</td><td>0.84%</td><td>18.59%</td><td>60.57%</td><td>18.66%</td><td>21.96%</td><td>24.12%</td><td>18.66%</td></tr>
+
+                <tr class="category-row"><td colspan="8">Valuation Parameters</td></tr>
+                <tr><td>Historical growth rate</td><td colspan="7">-21.14%</td></tr>
+                <tr><td>Sustainable growth rate</td><td colspan="7">-0.01%</td></tr>
+                <tr><td>Implied growth rate</td><td colspan="7">-7.52%</td></tr>
+                <tr><td>Cost of Equity (rE)</td><td colspan="7">16.60%</td></tr>
+
+                <tr class="category-row"><td colspan="8">Scenario I: Long-run growth at sustainable rate</td></tr>
+                <tr><td>Timeline (t)</td><td>t0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+                <tr><td>Projected Dividend</td><td>$2.35</td><td>$1.85</td><td>$1.46</td><td>$1.15</td><td>$0.91</td><td>$0.72</td><td>$0.72</td></tr>
+                <tr><td>PV GP5 / PV Div 1-5</td><td colspan="7">PV GP5: $4.32 | PV Div 1-5: $4.22</td></tr>
+                <tr><td><strong>Estimated Price</strong></td><td colspan="7"><strong>$6.22</strong> (Market Price: $12.09)</td></tr>
+
+                <tr class="category-row"><td colspan="8">Scenario II: Long-run growth at implied growth rate</td></tr>
+                <tr><td>Timeline (t)</td><td>t0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+                <tr><td>Projected Dividend</td><td>$2.35</td><td>$1.85</td><td>$1.46</td><td>$1.15</td><td>$0.91</td><td>$0.72</td><td>$0.66</td></tr>
+                <tr><td>PV GP5 / PV Div 1-5</td><td colspan="7">PV GP5: $2.75 | PV Div 1-5: $4.22</td></tr>
+                <tr><td><strong>Estimated Price</strong></td><td colspan="7"><strong>$5.49</strong> (Market Price: $12.09)</td></tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-gray">
-        <div class="content">
-            <h2>Part 1: DDM Analysis & Growth Scenarios</h2>
-            <p>The valuation commenced with an analysis of Petrobras's dividend history from 2020 to 2024. A primary challenge in this analysis was the high volatility of the dividend growth rate, notably a massive spike in 2021. As this extreme growth rate skewed the data, making standard estimation unrealistic, a five-year median growth rate of -21.14% was utilized to project the five-year timeline. This methodological choice ensures the model reflects the recent cooling trend in dividend payouts rather than anomalous historical spikes.</p>
-            
-            <div style="margin-top: 30px; margin-bottom: 30px; padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
-                <canvas id="dividendChart"></canvas>
-            </div>
+<section class="section section-gray">
+    <div class="content content-wide">
+        <h2>DFCF (The Core Business Value)</h2>
+        <p>The DFCF model shows a more comprehensive value of the firm’s operational value. The methodology projects and uses a historical 9.26% historical revenue growth rate and applies a 14% WACC to the firm’s cash generation. The resulting intrinsic value is between $26.36 and $27.70. This valuation suggests that the market is undervaluing Petrobras by more than 50%. This discrepancy is explained by the company’s high operational efficiency; specifically 29.87% mean EBIT margin which allows the firm to generate surplus cash even after accounting the high interest in Brazil.</p>
 
-            <p>Two distinct mathematical approaches were utilized to stress-test the terminal value assumptions. The first model assumes a <strong>long-run growth at a sustainable rate</strong> (calculated close to 0%). By discounting the projected dividends and terminal value against the cost of equity derived from Alpha Spread, an estimated intrinsic value of <strong>$6.00</strong> was produced, compared to the market price of $13.16. This significant divergence suggests that if the company continues to shrink its dividends at the historical median rate, the stock is currently overvalued by the market. However, the most critical assumption driving this result is the 0% terminal growth rate, indicating the market is likely pricing in more stability than this specific model implies.</p>
-            
-            <p>The second approach replaces the sustainable rate with an <strong>implied long-run growth rate</strong>. This secondary model yielded an even lower estimated value of <strong>$5.39</strong>. The mathematics of this scenario assume that dividends must decline sharply to justify the current risk-adjusted returns. It is important to note that macroeconomic stability plays a key role in Petrobras's valuation; should Brazil's sovereign and political stability improve, the high cost of equity (currently 16.6%) will decrease, which would proportionally elevate the intrinsic valuation.</p>
+        <div class="table-wrapper">
+            <table class="master-table">
+                <thead>
+                <tr>
+                    <th>Discounted Free Cash Flow</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                    <th>2022</th>
+                    <th>2023</th>
+                    <th>2024</th>
+                    <th>Mean</th>
+                    <th>Median</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>EBIT/Sales</td><td>10.19%</td><td>39.54%</td><td>45.12%</td><td>38.10%</td><td>16.39%</td><td>29.87%</td><td>38.10%</td></tr>
+                <tr><td>CapEx</td><td>$5.9B</td><td>$6.3B</td><td>$9.6B</td><td>$12.1B</td><td>$14.6B</td><td>-</td><td>-</td></tr>
+                <tr><td>D&A</td><td>$11.4B</td><td>$11.7B</td><td>$13.2B</td><td>$13.3B</td><td>$12.5B</td><td>-</td><td>-</td></tr>
+                <tr><td>Net Investment/Sales</td><td>-10.39%</td><td>-6.39%</td><td>-2.92%</td><td>-1.14%</td><td>2.36%</td><td>-3.70%</td><td>-2.92%</td></tr>
+                <tr><td>Account Receivables</td><td>$7.3B</td><td>$7.7B</td><td>$6.3B</td><td>$7.3B</td><td>$5.5B</td><td>-</td><td>-</td></tr>
+                <tr><td>Inventories</td><td>$5.7B</td><td>$7.3B</td><td>$8.8B</td><td>$7.7B</td><td>$6.7B</td><td>-</td><td>-</td></tr>
+                <tr><td>Account Payables</td><td>$10.6B</td><td>$10.2B</td><td>$15.6B</td><td>$13.8B</td><td>$13.4B</td><td>-</td><td>-</td></tr>
+                <tr><td>NWC/Sales</td><td>4.57%</td><td>5.66%</td><td>-0.38%</td><td>1.15%</td><td>-1.29%</td><td>1.94%</td><td>1.15%</td></tr>
+                <tr><td>Effective Tax Rate</td><td>31.00%</td><td>29.00%</td><td>31.00%</td><td>29.00%</td><td>32.00%</td><td>30.40%</td><td>31.00%</td></tr>
+                <tr><td>Revenue Growth (historical)</td><td>-29.91%</td><td>56.41%</td><td>48.24%</td><td>-17.73%</td><td>-10.73%</td><td>9.26%</td><td>-10.73%</td></tr>
+
+                <tr class="category-row"><td colspan="8">Model Parameters</td></tr>
+                <tr><td>Long-run Growth</td><td colspan="7">2.50%</td></tr>
+                <tr><td>rWACC</td><td colspan="7">14.00%</td></tr>
+                <tr><td>rWACC w/out Cash</td><td colspan="7">14.54%</td></tr>
+
+                <tr class="category-row"><td colspan="8">Projections (Values in Dollar Billion)</td></tr>
+                <tr><td>Timeline (t)</td><td>t0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+                <tr><td>Sales</td><td>$91.4B</td><td>$99.9B</td><td>$109.1B</td><td>$119.2B</td><td>$130.3B</td><td>$142.3B</td><td>$155.5B</td></tr>
+                <tr><td>EBIT</td><td>$29.8B</td><td>$32.6B</td><td>$35.6B</td><td>$38.9B</td><td>$42.5B</td><td>$46.4B</td><td>-</td></tr>
+                <tr><td>NOPAT</td><td>$20.8B</td><td>$22.7B</td><td>$24.8B</td><td>$27.1B</td><td>$29.6B</td><td>$32.3B</td><td>-</td></tr>
+                <tr><td>Net Investment</td><td>-$0.3B</td><td>-$0.3B</td><td>-$0.4B</td><td>-$0.4B</td><td>-$0.4B</td><td>-$0.5B</td><td>-</td></tr>
+                <tr><td>Change NWC</td><td>$0.2B</td><td>$0.2B</td><td>$0.2B</td><td>$0.2B</td><td>$0.2B</td><td>$0.3B</td><td>-</td></tr>
+                <tr><td><strong>FCF</strong></td><td><strong>$20.9B</strong></td><td><strong>$22.8B</strong></td><td><strong>$25.0B</strong></td><td><strong>$27.3B</strong></td><td><strong>$29.8B</strong></td><td><strong>$32.6B</strong></td><td>-</td></tr>
+
+                <tr class="category-row"><td colspan="8">Valuation Scenarios</td></tr>
+                <tr>
+                    <td colspan="4" style="text-align: center;"><strong>Scenario I (Using rWACC)</strong></td>
+                    <td colspan="4" style="text-align: center;"><strong>Scenario II (Using rWACC w/out Cash)</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center;">PV GP5: $277.1B | PV FCF 1-5: $83.9B</td>
+                    <td colspan="4" style="text-align: center;">PV GP5: $270.5B | PV FCF 1-5: $97.7B</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center;">Estimated EV: $226.2B</td>
+                    <td colspan="4" style="text-align: center;">Estimated EV: $234.9B</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center;">Total Debt: $59.4B | Cash: $3.3B | Shares: 6.5B</td>
+                    <td colspan="4" style="text-align: center;">Total Debt: $59.4B | Cash: $3.3B | Shares: 6.5B</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: center; color: #2997ff; font-weight: bold;">Estimated Price: $26.36 (Market: $12.09)</td>
+                    <td colspan="4" style="text-align: center; color: #2997ff; font-weight: bold;">Estimated Price: $27.70 (Market: $12.09)</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Part 2: Discounted Free Cash Flow (DFCF)</h2>
-            <p>For the final stage, the Discounted Free Cash Flow model was employed. This model captures the company’s internal value by discounting projected free cash flows at a Weighted Average Cost of Capital (WACC) of 14.25%. A five-year average EBIT/Sales margin of 29.87% and a normalized effective tax rate of 30.40% (to remove the 2020 outlier) were utilized for the projections. This framework produced an estimated enterprise value that results in an intrinsic stock price of <strong>$27.70</strong>.</p>
-            
-            <p>While the DDM suggested that Petrobras is overvalued due to shrinking dividend payouts, the DFCF model demonstrates that the underlying enterprise is significantly undervalued compared to the market value of $13.16. The current market price indicates that investors are balancing out the high operational profits against the uncertainty of state-controlled dividend policies. Ultimately, the DFCF model confirms that the company’s core operational assets are worth considerably more than the current market valuation implies, proving the company’s underlying efficiency.</p>
+<section class="section section-light">
+    <div class="content">
+        <h2>Comparable Companies & Advanced Valuation</h2>
+        <p>When comparing PBR with the energy giants ExxonMobil, Chevron, Shell, and TotalEnergies, a clear divergence is seen in price of PBR.</p>
 
-            <div style="margin-top: 40px; margin-bottom: 40px; padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
-                <canvas id="valuationChart"></canvas>
-            </div>
-            
-            <div class="download-section" style="padding: 20px 0 0 0; border-top: 1px solid #e5e5ea;">
-                <a href="Summary-Petrobras.xlsx" class="download-btn" download>
-                    Download Master Spreadsheet <span>(.xlsx)</span>
-                </a>
-            </div>
+        <p><strong>The market alignment ($9.81 - $14.31):</strong> Based on the standard multiple like P/E ratio and EV/ EBITDA, the implied price of $9.81 and $14.31 are very close the current market value of $12.09. This show the market is currently valuing the company as a standard commodity player and discounts it based on the Brazilian market risk.</p>
+
+        <p><strong>The FCFE model</strong> in comparison shows a high price of $41.45. This is because the company takes projected cash flows and adjusts it for the company’s debt strategy.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 40px; padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+            <canvas id="valuationTargetChart"></canvas>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
-        <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
-    </footer>
+<section class="section section-gray">
+    <div class="content">
+        <h2>In Conclusion</h2>
+        <p>The comprehensive valuation of Petrobras reveals a fundamental divergence between the company’s elite operational performance and its current market pricing. While cash-flow models (DFCF and FCFE) suggest an intrinsic value between $27.70 and $41.45, the market continues to price the stock near $12.09. This significant discount is not a reflection of the company's ability to generate cash, but rather a result of the persistent "Geopolitical Risk Premium" that investors apply to Brazilian state-linked entities. Petrobras remains an exceptionally efficient "Cash Cow," but its full valuation is currently capped by the macro-financial environment.</p>
 
-    <script>
-        // 1. Dividend Volatility Chart
-        new Chart(document.getElementById('dividendChart').getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: ['2020', '2021', '2022', '2023', '2024'],
-                datasets: [{ 
-                    label: 'Dividend per Share ($)', 
-                    data: [0.09, 2.04, 6.45, 2.98, 2.35], 
-                    backgroundColor: '#2997ff',
-                    borderRadius: 6
-                }]
-            },
-            options: { 
-                responsive: true, 
-                plugins: { 
-                    title: { display: true, text: 'Dividend Volatility: The 2021-2022 Spike & Cooling Trend' },
-                    legend: { display: false }
-                } 
-            }
-        });
+        <h3 style="margin-top: 40px;">The Impact of Global Conflict & The Energy Crisis</h3>
+        <p>The ongoing instability in the Middle East has had a dual-edged impact on Petrobras’s valuation:</p>
+        <ul>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Revenue vs. Political Risk:</strong> Spiking global oil prices have significantly boosted Petrobras's revenue as a net exporter. However, this has increased political risk, as the Brazilian government faces domestic pressure to decouple local fuel prices from international benchmarks to curb inflation, potentially hurting future margins.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Macro-Financial Constraints:</strong> The global "flight to safety" and rising inflation have kept the risk-free rate in Brazil high (13.81%). This elevated rate directly increases the company’s cost of equity (16.60%), forcing a higher discount rate on future cash flows and lowering the current stock price.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Dividend Uncertainty:</strong> While profits are high, the dividend payout policy remains sensitive. Investors fear that during global energy crises, the government may prioritize strategic reinvestment or fuel subsidies over shareholder distributions, further contributing to the valuation gap.</li>
+        </ul>
+        <p>In summary, Petrobras is a company with world-class assets and a $28+ operational value, but it is currently navigating a high-risk landscape that demands a substantial discount from the international investment community.</p>
+    </div>
+</section>
 
-        // 2. Valuation Target vs Market Price Chart
-        new Chart(document.getElementById('valuationChart').getContext('2d'), {
-            type: 'bar',
-            data: {
-                // Updated Labels to remove "Scenario 1/2"
-                labels: ['DDM (Sustainable Growth)', 'DDM (Implied Growth)', 'Current Market Price', 'DFCF Intrinsic Value'],
-                datasets: [{ 
-                    label: 'Price in USD ($)', 
-                    data: [6.00, 5.39, 13.16, 27.70], 
-                    backgroundColor: [
-                        '#86868b', 
-                        '#86868b', 
-                        '#1d1d1f', 
-                        '#2997ff'  
-                    ],
-                    borderRadius: 6
-                }]
-            },
-            options: { 
-                responsive: true, 
-                plugins: { 
-                    title: { display: true, text: 'Price Target Comparison: Models vs. Market Reality' },
-                    legend: { display: false }
+<section class="section section-light download-section">
+    <div class="content">
+        <h2 style="font-size: 2rem; margin-bottom: 15px;">Project Data Files</h2>
+        <p style="margin-bottom: 30px;">For a comprehensive view of the financial modeling, ratios, and raw data, please download the master spreadsheet below.</p>
+
+        <a href="Summary-Petrobras.xlsx" class="download-btn" download>
+            Download Master Spreadsheet <span>(.xlsx)</span>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+    <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+</footer>
+
+<script>
+    // 1. Dividend Comparison Chart
+    new Chart(document.getElementById('dividendCompChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['2020', '2021', '2022', '2023', '2024'],
+            datasets: [
+                {
+                    label: 'Chevron',
+                    data: [5.16, 5.31, 5.68, 6.04, 6.52],
+                    borderColor: '#1d1d1f',
+                    tension: 0.3,
+                    borderWidth: 2
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: { callback: function(value) { return '$' + value; } }
-                    }
+                {
+                    label: 'ExxonMobil',
+                    data: [3.48, 3.49, 3.55, 3.68, 3.84],
+                    borderColor: '#86868b',
+                    tension: 0.3,
+                    borderWidth: 2
+                },
+                {
+                    label: 'Petrobras (PBR)',
+                    data: [0.09, 2.04, 6.45, 2.98, 2.35],
+                    borderColor: '#ff3b30', // Highlighted in Red per request
+                    backgroundColor: 'rgba(255, 59, 48, 0.1)',
+                    tension: 0.3,
+                    borderWidth: 4,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: { display: true, text: 'Dividend per Share Comparison ($)', font: { size: 16 } }
+            }
+        }
+    });
+
+    // 2. Valuation Target vs Market Price Chart
+    new Chart(document.getElementById('valuationTargetChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['DDM (Pessimistic)', 'Market Alignment (Multiples)', 'Current Market Price', 'DFCF (Intrinsic Value)', 'FCFE Model'],
+            datasets: [{
+                label: 'Price in USD ($)',
+                data: [5.49, 12.06, 12.09, 27.70, 41.45],
+                backgroundColor: [
+                    '#ff3b30', // DDM Floor
+                    '#86868b', // Multiples
+                    '#1d1d1f', // Market Price
+                    '#2997ff', // DFCF
+                    '#34c759'  // FCFE Ceiling
+                ],
+                borderRadius: 6
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: { display: true, text: 'Valuation Summary: Price Targets vs. Current Reality', font: { size: 16 } },
+                legend: { display: false }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { callback: function(value) { return '$' + value; } }
                 }
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>

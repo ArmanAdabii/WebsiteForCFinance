@@ -6,149 +6,341 @@
     <title>Financial Performance | Arman Adabi</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Ultra-Compact, Scrollable Table Styling */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e5e5ea;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .master-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.75rem; /* Significantly smaller font to fit data gracefully */
+            white-space: nowrap;
+        }
+
+        .master-table th, .master-table td {
+            padding: 8px 10px; /* Tighter padding for a spreadsheet feel */
+            text-align: right;
+            border-bottom: 1px solid #f5f5f7;
+            color: #515154;
+        }
+
+        /* Styling the Headers */
+        .master-table th {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        /* Sticky Left Column (Ratio Names) */
+        .master-table th:first-child,
+        .master-table td:first-child {
+            text-align: left;
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            font-weight: 600;
+        }
+
+        .master-table th:first-child {
+            background-color: #eaeaea;
+        }
+
+        .master-table td:first-child {
+            background-color: #ffffff;
+            border-right: 1px solid #e5e5ea;
+        }
+
+        /* Row Hovers & Categories */
+        .master-table tbody tr:hover td {
+            background-color: #fafafa;
+        }
+
+        .master-table tbody tr:hover td:first-child {
+            background-color: #fafafa;
+        }
+
+        .category-row td {
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            background-color: #f5f5f7 !important;
+            text-align: left !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-top: 2px solid #e5e5ea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.7rem;
+        }
+    </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand"><span>Analysis By</span> Arman Adabi</a>
-            <div class="nav-links">
-                <a href="index.html">Overview</a>
-                <a href="industry.html">Industry</a>
-                <a href="performance.html" class="active">Performance</a>
-                <a href="valuation.html">Valuation</a>
-                <a href="feedback.html">Feedback</a> 
-                <a href="references.html">References</a>
-            </div>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand"><span>Analysis By</span> Arman Adabi</a>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="industry.html">Industry</a>
+            <a href="performance.html" class="active">Performance</a>
+            <a href="cost_of_capital.html">Cost of Capital</a>
+            <a href="valuation.html">Valuation</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="references.html">References</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
-        <div class="content">
-            <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Financials</h1>
-            <p style="font-size: 1.5rem; margin-top: 10px;">Historical Ratios and Cash Flow Analysis</p>
+<section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
+    <div class="content">
+        <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Financials</h1>
+        <p style="font-size: 1.5rem; margin-top: 10px;">Historical Ratios and Cash Flow Analysis</p>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="content">
+        <h2>Financial Analysis</h2>
+        <p>Petrobras has demonstrated excellent performance and operational efficiency, as seen by the significant operating margin derived from its pre-salt salt assets. The company's operational margin as of 2024 is an amazing 28.1%, compared to the industry median of 4.65%. The gross profit margin of 50.29%, which indicates that the business keeps half of its income after production costs, better captures this efficiency. Even after taxes and interest, Petrobras's net profit margin of 8.32% surpasses the industry average of 1.75%.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 50px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+            <canvas id="profitChart"></canvas>
         </div>
-    </section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Profitability Ratios</h2>
-            <p>When analyzing financial ratios from petrobras from 2015 to 2024, it can be seen that the company has successfully improved from a period of extreme distress to a leader of the industry in efficiency in South America. The most significant improvement that can be seen is the trend in profitability ratios.</p>
-            <p>Petrobras's gross profit margin has seen a steady increase, it climbed from 30.65 in 2015 to 52.70 in 2023 and it continually outperformed the industry median. Something even more impressive is that the operating margin of the company peaked at 44.69% in 2022. Compared to the industry median of 4.65%, Petrobras's operational efficiency is an outlier, driven primarily by low lifting costs of pre-salt assets.</p>
-            
-            <div style="margin-top: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
-                <canvas id="profitChart"></canvas>
-            </div>
+        <p>The company's liquidity indicates that, in contrast to its strong profitability, it has a very active and lean cash management plan. With a current ratio of 0.69, the company's short-term commitments are currently greater than its short-term assets. For a major corporation like Petrobras, such indications indicate that the company prioritizes large dividend payments and debt obligations, but they also frequently indicate difficulties in other industries. This is supported by a 33.41 days of cash conversion cycle which is very close to the industry median.</p>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="content content-wide">
+        <h2>Financial & Operating Metrics (2015 - 2024)</h2>
+        <p style="margin-bottom: 10px; font-size: 0.9rem;"><em>Scroll horizontally to view all years, means, and industry medians.</em></p>
+
+        <div class="table-wrapper">
+            <table class="master-table">
+                <thead>
+                <tr>
+                    <th>Ratio</th>
+                    <th>2015</th>
+                    <th>2016</th>
+                    <th>2017</th>
+                    <th>2018</th>
+                    <th>2019</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                    <th>2022</th>
+                    <th>2023</th>
+                    <th>2024</th>
+                    <th>Mean</th>
+                    <th>Median</th>
+                    <th>Industry (Median)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="category-row"><td colspan="14">Profitability ratio</td></tr>
+                <tr><td>Gross Profit Margin %</td><td>30.65</td><td>31.92</td><td>32.29</td><td>35.64</td><td>40.29</td><td>45.62</td><td>48.59</td><td>52.21</td><td>52.70</td><td>50.29</td><td>42.02</td><td>42.96</td><td>42.30</td></tr>
+                <tr><td>Operating Margin %</td><td>15.11</td><td>17.73</td><td>14.66</td><td>24.29</td><td>22.43</td><td>30.76</td><td>39.69</td><td>44.69</td><td>38.56</td><td>28.10</td><td>27.60</td><td>26.20</td><td>4.65</td></tr>
+                <tr><td>Net Profit Margin %</td><td>-8.85</td><td>-5.34</td><td>0.19</td><td>7.76</td><td>10.19</td><td>1.77</td><td>23.80</td><td>29.53</td><td>24.41</td><td>8.32</td><td>9.18</td><td>8.04</td><td>1.75</td></tr>
+
+                <tr class="category-row"><td colspan="14">Liquidity ratio</td></tr>
+                <tr><td>Current Ratio</td><td>1.52</td><td>1.80</td><td>1.89</td><td>1.48</td><td>0.97</td><td>1.04</td><td>1.25</td><td>1.00</td><td>0.96</td><td>0.69</td><td>1.26</td><td>1.145</td><td>1.23</td></tr>
+                <tr><td>Quick Ratio</td><td>1.20</td><td>1.18</td><td>1.28</td><td>0.91</td><td>0.54</td><td>0.75</td><td>0.78</td><td>0.54</td><td>0.68</td><td>0.42</td><td>0.828</td><td>0.765</td><td>1.05</td></tr>
+
+                <tr class="category-row"><td colspan="14">Working Capital Ratios</td></tr>
+                <tr><td>Cash Conversion Cycle</td><td>33.31</td><td>36.13</td><td>36.50</td><td>36.43</td><td>43.60</td><td>37.66</td><td>26.62</td><td>32.29</td><td>43.16</td><td>33.41</td><td>35.911</td><td>36.28</td><td>37.87</td></tr>
+                <tr><td>Inventory Turnover</td><td>7.14</td><td>6.96</td><td>7.09</td><td>7.04</td><td>5.33</td><td>4.21</td><td>6.68</td><td>7.42</td><td>5.89</td><td>6.32</td><td>6.408</td><td>6.821</td><td>17.73</td></tr>
+                <tr><td>Asset Turnover</td><td>0.37</td><td>0.34</td><td>0.36</td><td>0.40</td><td>0.34</td><td>0.26</td><td>0.46</td><td>0.69</td><td>0.51</td><td>0.46</td><td>0.419</td><td>0.385</td><td>0.36</td></tr>
+
+                <tr class="category-row"><td colspan="14">Leverage Ratios</td></tr>
+                <tr><td>Interest Coverage</td><td>-0.92</td><td>0.39</td><td>1.37</td><td>3.88</td><td>2.80</td><td>0.96</td><td>6.67</td><td>17.17</td><td>10.78</td><td>3.90</td><td>4.70</td><td>3.34</td><td>1.64</td></tr>
+                <tr><td>Debt/Equity</td><td>1.71</td><td>1.41</td><td>1.28</td><td>1.13</td><td>1.05</td><td>1.11</td><td>0.72</td><td>0.64</td><td>0.65</td><td>0.83</td><td>1.053</td><td>1.08</td><td>0.95</td></tr>
+                <tr><td>Debt/Capital</td><td>0.66</td><td>0.60</td><td>0.57</td><td>0.54</td><td>0.54</td><td>0.56</td><td>0.46</td><td>0.44</td><td>0.44</td><td>0.50</td><td>0.531</td><td>0.54</td><td>0.44</td></tr>
+
+                <tr class="category-row"><td colspan="14">Valuation Ratios</td></tr>
+                <tr><td>P/B Ratio</td><td>—</td><td>0.82</td><td>0.81</td><td>1.17</td><td>1.41</td><td>1.67</td><td>1.06</td><td>1.01</td><td>1.35</td><td>1.15</td><td>1.16</td><td>1.15</td><td>1.36</td></tr>
+                <tr><td>P/E Ratio</td><td>—</td><td>—</td><td>28.58</td><td>17.12</td><td>16.60</td><td>—</td><td>2.79</td><td>2.04</td><td>3.88</td><td>5.02</td><td>10.86</td><td>5.02</td><td>3.57</td></tr>
+                <tr><td>Enterprise Value/EBITDA</td><td>—</td><td>—</td><td>13.53</td><td>13.99</td><td>10.04</td><td>—</td><td>2.93</td><td>2.12</td><td>3.68</td><td>4.64</td><td>7.28</td><td>4.64</td><td>5.53</td></tr>
+
+                <tr class="category-row"><td colspan="14">Operating Returns</td></tr>
+                <tr><td>Return on Asset (%)</td><td>-3.19%</td><td>-2.03%</td><td>-0.04%</td><td>3.03%</td><td>4.49%</td><td>0.54%</td><td>10.91%</td><td>20.26%</td><td>12.31%</td><td>3.78%</td><td>5.01%</td><td>3.41%</td><td>11.70%</td></tr>
+                <tr><td>Return on Equity (%)</td><td>-9.31%</td><td>-6.81%</td><td>-0.12%</td><td>9.48%</td><td>14.01%</td><td>1.72%</td><td>30.87%</td><td>52.73%</td><td>33.61%</td><td>10.93%</td><td>13.71%</td><td>10.21%</td><td>2.70%</td></tr>
+                <tr><td>Return on Invested Capital (%)</td><td>-2.09%</td><td>-0.20%</td><td>1.60%</td><td>5.45%</td><td>9.16%</td><td>3.32%</td><td>17.80%</td><td>30.57%</td><td>20.75%</td><td>7.79%</td><td>9.42%</td><td>6.62%</td><td>3.70%</td></tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-gray">
-        <div class="content">
-            <h2>Liquidity Ratios</h2>
-            <p>In comparison to profit ratios, liquidity ratios show an aggressive management style. The liquidity ratios show a downward trend because it went from 1.52 in 2015 to 0.69 in 2024 which is very low compared to the industry median of 1.23.</p>
-            <p>This downward trend suggests that the company moved toward a model which prioritizes cash outflows for dividends and debt repayment over a large capital formation, and buffer. The quick ratio of 2024 makes this argument even more solid and shows that Petrobras relies on heavily operating cash flows rather than liquid assets to meet short term obligations.</p>
-            
-            <div style="margin-top: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
-                <canvas id="liquidityChart"></canvas>
-            </div>
+<section class="section section-light">
+    <div class="content">
+        <h2>Deleveraging</h2>
+        <p>The most compelling part of this analysis is how Petrobras managed the debt crisis it had. In 2015 Petrobras started a massive deleveraging program successfully reducing debt to equity ratio from 1.71 to 0.83 in 2024, and this stability is underscored by an interest coverage ratio of 3.9x which shows that it generates nearly four times the profit required to service its debt. The following is a graph of Debt/Equity ratio and its evolution over the years.</p>
+
+        <div style="margin-top: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
+            <canvas id="debtChart"></canvas>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Strengths: Returns & Deleveraging</h2>
-            <p><strong>Best in returns:</strong> the return on equity is a standout strength. While in 2015 the return on equity was -9.31%, it rocketed to 52.73% in 2022. It remains significantly higher than the industry median of 2.70% with the normalization of 2024 to 10.93%.</p>
-            <p><strong>Aggressive deleveraging:</strong> The company’s debt/equity ratio has improved dramatically. It went from 1.71 in 2015 to 0.83 in 2024. This reduction in leverage has improved the interest coverage ratio which rose from -0.92 to a peak of 17.17 in 2022 which shows a much better credit profile, and the company’s successful management.</p>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
-                <div style="padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
-                    <canvas id="roeChart"></canvas>
-                </div>
-                <div style="padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea;">
-                    <canvas id="debtChart"></canvas>
-                </div>
-            </div>
+<section class="section section-gray">
+    <div class="content">
+        <h2>Inventory Management</h2>
+        <p>Inventory turnover, this metric shows how many times a year Petrobras sells through its whole inventory and stock of oil. The median is 17.7 but PBR is 6.4 which shows that the company holds oil longer than the industry median.</p>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="content content-wide">
+        <h2>Cashflow Analysis</h2>
+
+        <p><strong>Cash from operating activities:</strong> This figure shows the actual money from pumping and selling oil. Petrobras had a stable improvement averaging $26B every year until 2022. Even in 2022 during the global energy crisis, Petrobras managed to generate $49.7B, and take advantage of the crisis.</p>
+
+        <p><strong>Investing activities and CapEx:</strong> Capital expenditure was managed very well, especially in 2020- 2021 ($6B) before rising to $14.6B in 2024. Petrobras’s strategy is only to spend on high return and deep water projects rather than inefficient infrastructure. The 2021 Divestment program usually shows investment as negative (spending money), but in 2021 it shows as $2.2B, and this positive inflow is explained by divestment where Petrobras sold non-core assets.</p>
+
+        <p><strong>Financing activities:</strong> The data shows the company had massive outflow and peaking -$51.5B in 2022 which represents the company’s commitment to paying down debt and rewarding shareholders with dividends which transformed the company from a highly indebted firm to a cash generating one.</p>
+
+        <p><strong>Free cash flow:</strong> Petrobras' FCF was only $0.2 billion in 2015, but it changed to $44.8 billion in 2022 and, even after normalization, to $25.1 billion in 2024. The DFCF estimated price is higher because of the large amount of remaining funds. The company is generating more surplus cash than almost any emerging market peers.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea; max-width: 850px; margin-left: auto; margin-right: auto;">
+            <canvas id="cashflowChart"></canvas>
         </div>
-    </section>
 
-    <section class="section section-gray">
-        <div class="content">
-            <h2>Weaknesses & Cash Flow</h2>
-            <p><strong>Weaknesses:</strong> Once major weakness is the valuation. Although one can see the profitability ratio of the petrobras, the market still suggests petrobras are sold at a discount compared to the other global peers. According to a report by IISD “Brazil has a real opportunity to lead on climate and future-proof its economy,'' says Joachim Roth, report co-author and Climate Policy Lead at the World Benchmarking Alliance. ''It can do this by redefining Petrobras's mandate, ending new oil and gas licences and aligning national and private sector transition plans through a whole-of-government approach.” and also “The Brazilian government can influence this path, both through policy actions and its controlling stake in Petrobras.” (“Petrobras oil rush a bad bet for Brazil, report shows”). This shows the sovereign risk which investors are concerned about Brazilian government ‘s influence.</p>
-            <p>Also, the company is very volatile. The cash conversion cycle has fluctuated, rising back to 33.41 days in 2024. When combined with a falling asset turnover from 0.69 in 2022 to 0.46 in 2024. It suggests that while the company is profitable, its efficiency in moving assets and managing cash slowed as it enters in a new investment cycle.</p>
-            <p>Based on the financial statements, Petrobras has maintained a positive cash flow for the majority of the last decade. Operating cash flow has been high which is one of the reasons the company has good health and it was peak in 2022 due to high production. The investing cash flow has been consistently negative but it peaked in 2019 and 2021 and it became less negative due to companies selling core assets like refineries. Financing cash flow has been deeply negative, especially in 2021-2023 and the driving factor is that Petrobras is trying to reduce debt and pay high dividend payments.</p>
+        <div class="table-wrapper">
+            <table class="master-table">
+                <thead>
+                <tr>
+                    <th>Cash Flow Metrics (in Billions USD)</th>
+                    <th>2015</th>
+                    <th>2016</th>
+                    <th>2017</th>
+                    <th>2018</th>
+                    <th>2019</th>
+                    <th>2020</th>
+                    <th>2021</th>
+                    <th>2022</th>
+                    <th>2023</th>
+                    <th>2024</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>Cash From Operating Activities</td><td>$25.9B</td><td>$26.1B</td><td>$27.1B</td><td>$26.4B</td><td>$25.6B</td><td>$28.9B</td><td>$37.8B</td><td>$49.7B</td><td>$43.2B</td><td>$38.0B</td></tr>
+                <tr><td>Cash From Investing Activities</td><td>-$12.8B</td><td>-$11.3B</td><td>-$11.0B</td><td>-$4.8B</td><td>-$1.7B</td><td>-$4.5B</td><td>$2.2B</td><td>-$0.4B</td><td>-$8.0B</td><td>-$13.4B</td></tr>
+                <tr><td>Cash From Financing Activities</td><td>-$3.6B</td><td>-$19.1B</td><td>-$14.6B</td><td>-$29.6B</td><td>-$32.1B</td><td>-$19.3B</td><td>-$40.8B</td><td>-$51.5B</td><td>-$30.7B</td><td>-$33.1B</td></tr>
+                <tr><td>Capital Expenditure</td><td>$21.7B</td><td>$14.1B</td><td>$13.6B</td><td>$12.0B</td><td>$23.9B</td><td>$5.9B</td><td>$6.3B</td><td>$9.6B</td><td>$12.1B</td><td>$14.6B</td></tr>
+                <tr><td>Free Cash Flow</td><td>$0.2B</td><td>$6.7B</td><td>$8.6B</td><td>$11.0B</td><td>$3.3B</td><td>$17.4B</td><td>$29.8B</td><td>$44.8B</td><td>$32.9B</td><td>$25.1B</td></tr>
+                <tr><td>Change in Cash</td><td>$9.5B</td><td>-$4.3B</td><td>$1.4B</td><td>-$8.0B</td><td>-$8.2B</td><td>$5.1B</td><td>-$0.8B</td><td>-$2.2B</td><td>$4.6B</td><td>-$8.5B</td></tr>
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-light download-section">
-        <div class="content">
-            <h2 style="font-size: 2rem; margin-bottom: 15px;">Project Data Files</h2>
-            <p style="margin-bottom: 30px;">For a comprehensive view of the financial modeling, ratios, and raw data, please download the master spreadsheet below.</p>
-            
-            <a href="Summary-Petrobras.xlsx" class="download-btn" download>
-                Download Master Spreadsheet <span>(.xlsx)</span>
-            </a>
-        </div>
-    </section>
+<section class="section section-gray download-section">
+    <div class="content">
+        <h2 style="font-size: 2rem; margin-bottom: 15px;">Project Data Files</h2>
+        <p style="margin-bottom: 30px;">For a comprehensive view of the financial modeling, ratios, and raw data, please download the master spreadsheet below.</p>
 
-    <footer>
-        <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
-        <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
-    </footer>
+        <a href="Summary-Petrobras.xlsx" class="download-btn" download>
+            Download Master Spreadsheet <span>(.xlsx)</span>
+        </a>
+    </div>
+</section>
 
-    <script>
-        const years = ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
-        
-        new Chart(document.getElementById('profitChart').getContext('2d'), {
-            type: 'line',
-            data: {
-                labels: years,
-                datasets: [
-                    { label: 'Gross Margin %', data: [30.65, 31.92, 32.29, 35.64, 40.29, 45.62, 48.59, 52.21, 52.70, 50.29], borderColor: '#1d1d1f', tension: 0.3, fill: false },
-                    { label: 'Operating Margin %', data: [15.11, 17.73, 14.66, 24.29, 22.43, 30.76, 39.69, 44.69, 38.56, 28.10], borderColor: '#2997ff', tension: 0.3, fill: false, borderWidth: 3 },
-                    { label: 'Net Margin %', data: [-8.85, -5.34, 0.19, 7.76, 10.19, 1.77, 23.80, 29.53, 24.41, 8.32], borderColor: '#86868b', tension: 0.3, fill: false }
-                ]
+<footer>
+    <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+    <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+</footer>
+
+<script>
+    const years = ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
+
+    // Profitability Chart
+    new Chart(document.getElementById('profitChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: [
+                { label: 'Gross Margin %', data: [30.65, 31.92, 32.29, 35.64, 40.29, 45.62, 48.59, 52.21, 52.70, 50.29], borderColor: '#1d1d1f', tension: 0.3, fill: false },
+                { label: 'Operating Margin %', data: [15.11, 17.73, 14.66, 24.29, 22.43, 30.76, 39.69, 44.69, 38.56, 28.10], borderColor: '#2997ff', tension: 0.3, fill: false, borderWidth: 3 },
+                { label: 'Net Margin %', data: [-8.85, -5.34, 0.19, 7.76, 10.19, 1.77, 23.80, 29.53, 24.41, 8.32], borderColor: '#86868b', tension: 0.3, fill: false }
+            ]
+        },
+        options: { responsive: true, plugins: { title: { display: true, text: 'Profitability Trends (2015-2024)', font: { size: 16 } } } }
+    });
+
+    // Debt/Equity Chart
+    new Chart(document.getElementById('debtChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: [{
+                label: 'Debt-to-Equity Ratio',
+                data: [1.71, 1.41, 1.28, 1.13, 1.05, 1.11, 0.72, 0.64, 0.65, 0.83],
+                borderColor: '#1d1d1f', backgroundColor: 'rgba(29, 29, 31, 0.1)', fill: true, tension: 0.3, borderWidth: 3
+            }]
+        },
+        options: { responsive: true, plugins: { title: { display: true, text: 'Deleveraging: Debt-to-Equity Ratio', font: { size: 16 } } } }
+    });
+
+    // Cash Flow Chart
+    new Chart(document.getElementById('cashflowChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: [
+                {
+                    label: 'Operating Cash Flow',
+                    data: [25.9, 26.1, 27.1, 26.4, 25.6, 28.9, 37.8, 49.7, 43.2, 38.0],
+                    backgroundColor: '#1d1d1f',
+                    borderRadius: 4
+                },
+                {
+                    label: 'Free Cash Flow',
+                    data: [0.2, 6.7, 8.6, 11.0, 3.3, 17.4, 29.8, 44.8, 32.9, 25.1],
+                    backgroundColor: '#2997ff',
+                    borderRadius: 4
+                },
+                {
+                    label: 'Financing Cash Flow',
+                    data: [-3.6, -19.1, -14.6, -29.6, -32.1, -19.3, -40.8, -51.5, -30.7, -33.1],
+                    backgroundColor: '#86868b',
+                    borderRadius: 4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: { display: true, text: 'Cash Flow Trends ($ Billions)', font: { size: 16 } },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': $' + context.parsed.y + 'B';
+                        }
+                    }
+                }
             },
-            options: { responsive: true, plugins: { title: { display: true, text: 'Profitability Trends (2015-2024)' } } }
-        });
+            scales: {
+                y: {
+                    ticks: {
+                        callback: function(value) { return '$' + value + 'B'; }
+                    }
+                }
+            }
+        }
+    });
+</script>
 
-        new Chart(document.getElementById('liquidityChart').getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: years,
-                datasets: [
-                    { label: 'Current Ratio', data: [1.52, 1.80, 1.89, 1.48, 0.97, 1.04, 1.25, 1.00, 0.96, 0.69], backgroundColor: '#1d1d1f' },
-                    { label: 'Quick Ratio', data: [1.20, 1.18, 1.28, 0.91, 0.54, 0.75, 0.78, 0.54, 0.68, 0.42], backgroundColor: '#2997ff' }
-                ]
-            },
-            options: { responsive: true, plugins: { title: { display: true, text: 'Liquidity Ratios (Declining Trend)' } } }
-        });
-
-        new Chart(document.getElementById('roeChart').getContext('2d'), {
-            type: 'line',
-            data: {
-                labels: years,
-                datasets: [{ 
-                    label: 'Return on Equity (%)', 
-                    data: [-9.31, -6.81, -0.12, 9.48, 14.01, 1.72, 30.87, 52.73, 33.61, 10.93], 
-                    borderColor: '#2997ff', backgroundColor: 'rgba(41, 151, 255, 0.1)', fill: true, tension: 0.4 
-                }]
-            },
-            options: { responsive: true, plugins: { title: { display: true, text: 'Return on Equity (ROE)' } } }
-        });
-
-        new Chart(document.getElementById('debtChart').getContext('2d'), {
-            type: 'line',
-            data: {
-                labels: years,
-                datasets: [{ 
-                    label: 'Debt-to-Equity Ratio', 
-                    data: [1.71, 1.41, 1.28, 1.13, 1.05, 1.11, 0.72, 0.64, 0.65, 0.83], 
-                    borderColor: '#1d1d1f', backgroundColor: 'rgba(29, 29, 31, 0.1)', fill: true, tension: 0.3 
-                }]
-            },
-            options: { responsive: true, plugins: { title: { display: true, text: 'Deleveraging: Debt-to-Equity' } } }
-        });
-    </script>
 </body>
 </html>

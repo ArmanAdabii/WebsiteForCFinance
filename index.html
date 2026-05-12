@@ -3,88 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arman Adabi | Petrobras Valuation</title>
+    <title>Overview | Arman Adabi</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <span>Analysis By</span>
-                Arman Adabi
-            </a>
-            
-            <div class="nav-links">
-                <a href="index.html">Overview</a>
-                <a href="industry.html">Industry</a>
-                <a href="performance.html">Performance</a>
-                <a href="valuation.html">Valuation</a>
-                <a href="feedback.html">Feedback</a> 
-                <a href="references.html">References</a>
-            </div>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <span>Analysis By</span>
+            Arman Adabi
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Overview</a>
+            <a href="industry.html">Industry</a>
+            <a href="performance.html">Performance</a>
+            <a href="cost_of_capital.html">Cost of Capital</a>
+            <a href="valuation.html">Valuation</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="references.html">References</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <header class="hero">
-        <div class="hero-text">
-            <h1>Petrobras (PBR)</h1>
-            <p>Strategic Financial Analysis & Intrinsic Valuation</p>
+<header class="hero">
+    <div class="hero-text">
+        <h1>Petrobras.</h1>
+        <p>Energy for a society in motion.</p>
+    </div>
+</header>
+
+<section class="section section-light">
+    <div class="content">
+        <h2>Company overview:</h2>
+        <p>In 1953 Petrobras was established by the "Oil is ours" campaign, President Getulio Vargas signed Law No. 2,004, which created Petrobras. Fully nationally controlled and owned, with a majority interest of the Federal Government, Petrobras has a monopoly on the exploration of all stages of the oil industry, with the exception of distribution.</p>
+
+        <p>In 1997, Law 9.478 ended the monopoly, allowing Petrobras to enter joint ventures with international oil companies (IOCs). This forced a shift toward commercial efficiency.</p>
+
+        <p>In 2006, Petrobras discovered the Tupi (Lula) field which revolutionized the company. Petrobras became a world leader in ultra deep water technology accessing 7000 meters below sea levels. Also, Petrobras reached sustainable self-sufficiency in Brazil for oil and gas production with the operation of the P-34 and P-50 platforms, which projects were developed by Cenpes. With average daily production of 1.9 million barrels per day, the country started exporting more oil and byproducts than importing them.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 40px; text-align: center; background: #fff; padding: 20px; border-radius: 14px; box-shadow: 0 15px 30px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <img src="https://alchetron.com/cdn/pre-salt-layer-5303d5b4-1e83-4113-903d-bf83fe241d0-resize-750.gif" alt="Pre-salt Layer Exploration Animation" style="max-width: 100%; height: auto; border-radius: 8px;">
+            <p style="font-size: 0.85rem; color: #86868b; margin-top: 15px; letter-spacing: 0.5px;">Visual representation of the deep-water Pre-salt strata. <br><strong>Source: Alchetron</strong></p>
         </div>
-    </header>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Company Profile</h2>
-            <p>According to Yahoo finance “Petróleo Brasileiro S.A. - Petrobras is a publicly traded corporation that explores, produces, and sells oil and gas in Brazil and internationally. It operates through three segments: Exploration and Production; Refining, Transportation & Marketing; and Gas & Low Carbon Energies. The Exploration and Production segment explores, develops, and produces crude oil, natural gas liquids, and natural gas primarily for supplies to the domestic refineries. The Refining, Transportation and Marketing segment engages in the refining, logistics, transport, acquisition, and export of crude oil; trading of oil products; and production of fertilizers, as well as holding interests in petrochemical companies. The Gas and Low Carbon Energies segment is involved in the logistic and trading of natural gas and electricity; transportation and trading of liquefied natural gas; generation of electricity through thermoelectric power plants; renewable energy business; low carbon business; and natural gas processing business, as well as production of biodiesel and its co-products. The company was incorporated in 1953 and is headquartered in Rio de Janeiro, Brazil.” (“Petróleo Brasileiro S.A. - Petrobras (PBR)”).</p>
+        <p><strong>2015- 2016 Crises and recovery:</strong> Following a period of extreme debt (peaking $126B) and political challenges, the company utilized a “Value over volume” strategy which involved the sell of non-core assets (divestment) and focusing strictly on high margin deep water production. Mature onshore fields, shallow-water platforms, and some refineries. These were "volume" assets but had low margins.</p>
+    </div>
+</section>
 
-            <p>Though there was a lot of volatility in the petroleum and gas industry, the demand for Petrobras oil has never diminished. The company offers low carbon oil at a low cost which is below $6/ barrels. According to the company’s website “Petrobras achieved a net income of R$ 32.7 billion (US$ 6 billion) in the third quarter of 2025. Compared to the second quarter of 2025, profit rose 23%. The operational performance in this quarter, driven by oil and gas production of 3.14 MMboed (million barrels of oil equivalent per day), led the company to record an Operating Cash Flow of R$ 53.7 billion (US$ 9.9 billion) from an adjusted EBITDA of R$ 63.9 billion (US$ 11.7 billion).” (Petrobras, 2025)</p>
+<section class="section section-gray">
+    <div class="content">
+        <h2>Integrated business model:</h2>
+        <p>Petrobras operates across the entire value chain, but the current operations are primarily focused:</p>
+        <ul>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Upstream (The core):</strong> 90%+ of the capital expenditure is focused on exploration and production. The primary engine is the pre-salt fields which offers low lifting costs, and high class productivity.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Downstream (The market):</strong> Petrobras is the most dominant energy and refining company in Brazil that controls 10+ oil refineries. This allows them to capture margin from the oil well to the gas station.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Sustainability transition:</strong> There is a growing focus on decarbonizing operations aiming for net zero emissions for the year 2050 while for now the main cash driver is oil.</li>
+        </ul>
+    </div>
+</section>
 
-            <p>The primary success comes from finding the Búzios field in which they extract about 1 million barrels in a day. According to the Petrobras website “Petrobras began oil production from the P-78 floating production, storage and offloading (FPSO) vessel in the Búzios field, in the pre-salt layer of the Santos Basin, this Wednesday, December 31. Búzios 6 (P-78) has the capacity to produce 180,000 barrels of oil and 7.2 million m³ of gas per day. The FPSO will increase the installed production capacity of the field to approximately 1.15 million barrels of oil per day. Furthermore, this project will allow for the export of gas to the mainland via interconnection with the ROTA 3 gas pipeline, expanding Brazil's gas supply by up to 3 million m³ per day.” (Petrobras, 2025).</p>
+<section class="section section-light">
+    <div class="content">
+        <h2>Competitive landscape:</h2>
+        <p>In the global market Petrobras competes with ExxonMobil, Chevron, TotalEnergies, and Shell.</p>
 
-            <p>There were some challenges such as oil leaks. According to Reuters “A synthetic fluid leak of about 15 cubic meters (19.6 cubic yards) has halted Brazilian state-run oil firm Petrobras drilling of a well in the environmentally sensitive Foz do Amazonas Basin, the company said on Tuesday.” (Brazil’s Petrobras Pauses Drilling in Environmentally Sensitive Region After Fluid Leak, n.d.).</p>
+        <h3 style="margin-top: 30px;">Competitive Advantage:</h3>
+        <p>Petrobras has low lifting costs while other peers are struggling with maturing fields, Petrobras’s pre-salt field offers a “break even” resilience, which means total revenue (money earned) equals total costs (money spent). This allows Petrobras to profit even when the price of oil drops to $35 dollars per barrel.</p>
+
+        <h3 style="margin-top: 30px;">National role:</h3>
+        <p>Petrobras must maintain a dual mandate: deliver dividends to shareholders and fulfill Brazilian government’s strategic energy goals.</p>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="content">
+        <h2>Segment Performance (2023)</h2>
+        <p>A breakdown of the business segments reveals that <strong>Exploration & Production (Upstream)</strong> is the primary profit engine. While the Downstream segment generates high gross revenue, the Upstream segment accounts for the vast majority of operating income due to the elite efficiency of Pre-salt extraction.</p>
+
+        <div style="max-width: 800px; margin: 40px auto; background: #fff; padding: 25px; border-radius: 14px; box-shadow: 0 15px 30px rgba(0,0,0,0.05);">
+            <canvas id="segmentChart"></canvas>
         </div>
-    </section>
 
-    <section class="section section-gray">
-        <div class="content">
-            <h2>Project Methodology</h2>
-            <p>This research provides a rigorous quantitative assessment of Petrobras. By analyzing historical financial ratios, capital structure shifts, and macroeconomic risk factors, this analysis evaluates the market's current pricing of the stock against its fundamental cash-generating ability.</p>
-            <p>The core of this research relies on building an accurate Cost of Capital (WACC) profile to execute precise Discounted Cash Flow (DCF) and Dividend Discount Models (DDM).</p>
-        </div>
-    </section>
+        <p style="font-size: 0.85rem; color: #86868b; text-align: center; margin-top: 10px;">Source: Petrobras Form 20-F (Annual Report 2023). Values in USD Millions.</p>
+    </div>
+</section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Executive Findings</h2>
-            <p>Based on FY 2024 data, quantitative modeling reveals a significant divergence between the current market price and the company's intrinsic value. This is driven by exceptional operational margins, which insulate the firm despite tight short-term liquidity metrics.</p>
-            
-            <div class="metrics">
-                <div class="metric-item">
-                    <span class="metric-val">$27.70</span>
-                    <span class="metric-lab">DCF Intrinsic Value</span>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-val">28.1%</span>
-                    <span class="metric-lab">Operating Margin</span>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-val">10.9%</span>
-                    <span class="metric-lab">Return on Equity</span>
-                </div>
-                <div class="metric-item">
-                    <span class="metric-val">0.83</span>
-                    <span class="metric-lab">Debt-to-Equity</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+    <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+    <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+</footer>
 
-    <footer>
-        <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
-        <p>Cover image via Unsplash (Free to use under the Unsplash License).</p>
-        <p style="margin-top: 20px;">&copy; 2026 Arman Adabi | Financial Analysis Project</p>
-    </footer>
+<script>
+    new Chart(document.getElementById('segmentChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Exploration & Production', 'Refining & Marketing', 'Gas & Power'],
+            datasets: [
+                {
+                    label: 'Net Revenue ($M)',
+                    data: [68446, 89336, 9127],
+                    backgroundColor: '#1d1d1f', // Dark gray
+                    borderRadius: 6
+                },
+                {
+                    label: 'Operating Income ($M)',
+                    data: [31586, 8632, 1185],
+                    backgroundColor: '#2997ff', // Accent Blue
+                    borderRadius: 6
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Revenue vs. Operating Income by Segment',
+                    font: { size: 16, weight: '600' },
+                    padding: 20
+                },
+                legend: { position: 'bottom' }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) { return '$' + (value / 1000) + 'B'; }
+                    }
+                }
+            }
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of Capital | Arman Adabi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Minimalist Table Styling */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e5e5ea;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .master-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .master-table th, .master-table td {
+            padding: 12px 16px;
+            text-align: right;
+            border-bottom: 1px solid #f5f5f7;
+            color: #515154;
+        }
+
+        .master-table th {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+
+        .master-table th:first-child,
+        .master-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            background-color: #ffffff;
+            border-right: 1px solid #e5e5ea;
+            width: 40%;
+        }
+
+        .master-table th:first-child {
+            background-color: #eaeaea;
+        }
+
+        .master-table tbody tr:hover td {
+            background-color: #fafafa;
+        }
+
+        .category-row td {
+            font-weight: 700 !important;
+            color: #1d1d1f !important;
+            background-color: #f5f5f7 !important;
+            text-align: left !important;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            border-top: 2px solid #e5e5ea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand"><span>Analysis By</span> Arman Adabi</a>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="industry.html">Industry</a>
+            <a href="performance.html">Performance</a>
+            <a href="cost_of_capital.html" class="active">Cost of Capital</a>
+            <a href="valuation.html">Valuation</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="references.html">References</a>
+        </div>
+    </div>
+</nav>
+
+<section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
+    <div class="content">
+        <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Cost of Capital.</h1>
+        <p style="font-size: 1.5rem; margin-top: 10px;">Capital Structure and Market Risk Analysis</p>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="content">
+        <h2>Enterprise Value & Capital Structure</h2>
+        <p>The total enterprise value of the firm is $162.3B which represents the total value of the firm’s operations. The composition of this value represents the company has moved towards more conservative and sustainable funding mix. Currently the firm is 63.56% equity funded and 36.44% debt funded with a total cash reserve of $3.3B. Now the debt is more manageable showing a massive shift from the year 2015. This high level equity percentage shows the company can pay high dividend payouts without threatening its operational ability.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 40px; padding: 30px; background: #fff; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea; max-width: 500px; margin-left: auto; margin-right: auto;">
+            <canvas id="capitalStructureChart"></canvas>
+        </div>
+    </div>
+</section>
+
+<section class="section section-gray">
+    <div class="content">
+        <h2>Cost of Equity & Market Risk</h2>
+        <p>To determine the cost of equity (16.6%), we look how the market views Petrobras’s risk. The beta of 0.86 is a crucial insight, and it shows that Petrobras is less volatile than the average beta of 1.0 of the broader Brazilian market. This suggest that the pre-salt assets provide a stable foundation that resist some market instabilities.</p>
+
+        <p>"An alpha of one (the baseline value is zero) indicates that the return on the investment during a specified time frame outperformed the overall market average by 1%," according to the Corporate Finance Institute. An investment that is underperforming relative to the market average is indicated by a negative alpha number. (CFI Team, n.d.). Petrobras has surpassed the projected risky adjusted market average by 0.49% given its Alpha of 0.49%. The ultimate high cost of equity, adjusted for the Brazilian risk-free rate of 13.81%, reflects the market's anticipated return for Petrobras.</p>
+
+        <div style="margin-top: 40px; margin-bottom: 40px; text-align: center; background: #fff; padding: 20px; border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid #e5e5ea; max-width: 850px; margin-left: auto; margin-right: auto;">
+            <img src="beta_analysis.png" alt="Market Risk and Beta Analysis" style="max-width: 100%; height: auto; border-radius: 8px;">
+            <p style="font-size: 0.85rem; color: #86868b; margin-top: 15px; letter-spacing: 0.5px;">Petrobras Beta and Alpha performance against the broader market.</p>
+        </div>
+
+        <h3 style="margin-top: 40px;">Cost of Debt & WACC</h3>
+        <p>Petrobras’s ability to borrow money is anchored by its strong interest coverage ratio of 4.7x which means it earns five times the cash it needs for interest coverage. This strength earns the company a synthetic rating of A2/A allowing to borrow at a relatively low spread of 0.78% above the risk free rate. Also, the WACC for Petrobras is high which brings down the value of the company.</p>
+
+        <div class="table-wrapper">
+            <table class="master-table">
+                <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="category-row"><td colspan="2">Market Value Parameters</td></tr>
+                <tr><td>Stock Price</td><td>$14.12</td></tr>
+                <tr><td>Shares Outstanding</td><td>13B</td></tr>
+                <tr><td>Market Cap (E)</td><td>$184.2B</td></tr>
+
+                <tr class="category-row"><td colspan="2">Firm Value Parameters</td></tr>
+                <tr><td>Total Debt (D)</td><td>$59.2B</td></tr>
+                <tr><td>Cash (C)</td><td>$3.3B</td></tr>
+                <tr><td>Enterprise Value (V)</td><td>$162.3B</td></tr>
+
+                <tr class="category-row"><td colspan="2">Capital Structure Weights</td></tr>
+                <tr><td>Weight of Equity (We)</td><td>63.56%</td></tr>
+                <tr><td>Weight of Debt (Wd)</td><td>36.44%</td></tr>
+
+                <tr class="category-row"><td colspan="2">Cost of Equity Metrics</td></tr>
+                <tr><td>Cost of Equity (Ke)</td><td>16.6%</td></tr>
+                <tr><td>Alpha</td><td>0.49%</td></tr>
+                <tr><td>Beta</td><td>0.86</td></tr>
+                <tr><td>Risk Free Rate (Rf)</td><td>13.81%</td></tr>
+
+                <tr class="category-row"><td colspan="2">Cost of Debt Parameters</td></tr>
+                <tr><td>Interest Expense</td><td>$2,316M</td></tr>
+                <tr><td>Pre-tax Cost of Debt</td><td>3.91%</td></tr>
+                <tr><td>Interest Coverage Ratio</td><td>4.7x</td></tr>
+                <tr><td>Synthetic Rating</td><td>A2/A</td></tr>
+                <tr><td>Default Spread</td><td>0.78%</td></tr>
+                <tr><td>Synthetic Pre-Tax Cost of Debt</td><td>14.59%</td></tr>
+                <tr><td>Effective Tax Rate</td><td>34.00%</td></tr>
+                <tr><td><strong>After-Tax Cost of Debt</strong></td><td><strong>9.63%</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+    <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+</footer>
+
+<script>
+    // Capital Structure Doughnut Chart
+    new Chart(document.getElementById('capitalStructureChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Equity (63.56%)', 'Debt (36.44%)'],
+            datasets: [{
+                data: [63.56, 36.44],
+                backgroundColor: ['#531f53', '#2997ff'],
+                borderWidth: 0,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            cutout: '70%',
+            plugins: {
+                title: { display: true, text: 'Capital Structure Funding Mix', font: { size: 16 } },
+                legend: { position: 'bottom' }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

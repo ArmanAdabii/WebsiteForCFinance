@@ -5,80 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Industry Analysis | Arman Adabi</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">
-                <span>Analysis By</span>
-                Arman Adabi
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Overview</a>
-                <a href="industry.html" class="active">Industry</a>
-                <a href="performance.html">Performance</a>
-                <a href="valuation.html">Valuation</a>
-                <a href="feedback.html">Feedback</a> 
-                <a href="references.html">References</a>
-            </div>
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+            <span>Analysis By</span>
+            Arman Adabi
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Overview</a>
+            <a href="industry.html" class="active">Industry</a>
+            <a href="performance.html">Performance</a>
+            <a href="cost_of_capital.html">Cost of Capital</a>
+            <a href="valuation.html">Valuation</a>
+            <a href="feedback.html">Feedback</a>
+            <a href="references.html">References</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
-        <div class="content">
-            <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Industry.</h1>
-            <p style="font-size: 1.5rem; margin-top: 10px;">The Evolution of the Brazilian Energy Matrix</p>
+<section class="section section-gray" style="padding-top: 60px; padding-bottom: 60px;">
+    <div class="content">
+        <h1 style="font-size: 3.5rem; margin: 0; letter-spacing: -1.5px;">Industry.</h1>
+        <p style="font-size: 1.5rem; margin-top: 10px;">The Evolution of the Brazilian Energy Matrix</p>
+    </div>
+</section>
+
+<section class="section section-light">
+    <div class="content">
+        <h2>Industry Matrix:</h2>
+        <p>Brazil has one of the world’s most balanced energy matrices in the world. While the global average for renewable sources is much lower, Brazil’s total energy supply is nearly 50% renewable. Fossil fuel is still used for industrial growth and transportation.</p>
+        <ul>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Oil and Oil products (35.6%):</strong> The largest part of the energy sector and it stays high regardless of price because it fuels the nation's transportation (trucking and shipping).</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Biofuels and waste (33.4%):</strong> Brazil is a world leader in ethanol and biodiesel. This high percentage allows Brazil to be more stable during world shocks and unexpected problems.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Hydropower (11.4%):</strong> for electricity production.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Natural gas (8.6%):</strong> A growth area. While there is a low production of natural gas, the country is trying to increase production.</li>
+        </ul>
+
+        <div style="margin-top: 50px; background: #fff; padding: 20px; border-radius: 14px; box-shadow: 0 15px 30px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <canvas id="supplyChart"></canvas>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>The Transition to Diversity</h2>
-            <p>Since the year 2000, the supply of energy in Brazil has evolved from being heavily dependent on hydropower to a diverse, dual-track supply. While hydropower, biofuels, and waste historically dominated, in the years 2023 and 2024, solar and other renewable energy sources rose significantly to the point where they surpassed the coal and nuclear energy supply.</p>
-            
-            <p>Despite this renewable surge, the supply of oil and oil products has always been high. With the exception of a temporary drop in 2020, the supply increased steadily through 2024. Additionally, the production of energy from biofuels and waste sources has seen a marked increase since 2022, staying slightly above its supply requirements.</p>
+<section class="section section-gray">
+    <div class="content">
+        <h2>Trade Dynamics: Production, Imports and Exports</h2>
+        <p>The data shows a contradicting reality for Brazil: Brazil is rich in oil and a major oil producer in South America, but vulnerable in the natural gas sector.</p>
+        <ul>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Crude Oil Surplus:</strong> Brazil produces significantly more oil than its internal needs. Domestic production is roughly 166% of the domestic consumption. This allows Brazil to export oil to China, Europe, US, and other countries.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Refined Products:</strong> While being a major exporter, it still imports specific refined products like diesel to meet the demand.</li>
+            <li style="margin-bottom: 20px; line-height: 1.7;"><strong>Natural Gas (The dependency):</strong> Brazil imports 30% of its natural gas.</li>
+        </ul>
+
+        <div style="margin-top: 50px; background: #fff; padding: 20px; border-radius: 14px; box-shadow: 0 15px 30px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <canvas id="productionChart"></canvas>
         </div>
-    </section>
 
-    <section class="section section-gray">
-        <div class="content">
-            <h2>Domestic Consumption Profile</h2>
-            <p>Within Brazil, the largest consumer of energy—specifically oil and gas—is the transportation sector, accounting for 37.3% of total consumption. This is closely followed by industry at 33.7%, the residential sector at 12%, with the remainder utilized for agriculture and forestry purposes.</p>
-            
-            <p>One notable observation is the increasing reliance on oil and gas for electricity generation. In the early 2000s, Brazil was producing about 2.7 million TJ of crude oil, but this number has tripled over the last two decades to meet growing power demands.</p>
+        <div style="margin-top: 40px; background: #fff; padding: 20px; border-radius: 14px; box-shadow: 0 15px 30px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+            <canvas id="tradeChart"></canvas>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>From Consumer to Global Exporter</h2>
-            <p>There is a significant trend in the production of domestic energy. According to the IEA, domestic production has increased to the point where Brazil now produces almost double the oil and oil products required for its own consumption. Having fully satisfied domestic demand, the country has firmly transitioned into a net exporter.</p>
-            
-            <p>Since 2000, the trend in overall energy exports has increased by 561%, reaching 10.6% in 2024 and ranking Brazil first among South American countries for regional exports. Specifically, crude oil exports have skyrocketed. Since 2015, Brazil's share of exporting crude oil was 40.3%, representing an 8,791% trend increase. Domestic production of crude oil now accounts for 166% of the total energy supply production.</p>
-        </div>
-    </section>
+<section class="section section-light">
+    <div class="content">
+        <h2>Reserves and Long-Term Value:</h2>
+        <p>Petrobras' significant "inventory" in the ground serves as a strategic "bank account" for future expansion and successfully secures the company's long-term value. Over 75% of Brazil's 16.8 billion barrels of proven (1P) oil reserves are found in the abundant deep-water Pre-salt strata. This concentration offers a clear competitive advantage; the reserves are large and incredibly productive, with individual pre-salt wells producing up to 50,000 barrels per day—a performance metric that greatly surpasses average well outputs in the Middle East or the United States. The company's natural gas portfolio, which has proved reserves of around 546 billion cubic meters, complements this oil richness and strengthens the basis for long-term energy production and financial stability.</p>
+    </div>
+</section>
 
-    <section class="section section-gray">
-        <div class="content">
-            <h2>The Natural Gas Market</h2>
-            <p>The share of natural gas in the total energy supply was 8.6% in 2024, with the overall amount of natural gas supply increasing 228% since 2000.</p>
-            
-            <p>Of this total supply, 74% was produced domestically in Brazil—a segment that has seen a 217% domestic production increase over the last two decades. The remaining 25% of the natural gas supply was imported, with those imports increasing by 265% since the year 2000.</p>
-        </div>
-    </section>
+<footer>
+    <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
+    <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
+</footer>
 
-    <section class="section section-light">
-        <div class="content">
-            <h2>Strategic Infrastructure</h2>
-            <p>The primary success of the industry stems from deep-water Pre-salt layer exploration. The Búzios field—capable of producing 1 million barrels per day—and the P-78 FPSO vessel are critical components of Brazil's infrastructure. These assets not only bolster oil production but also allow for massive gas exports to the mainland via interconnection with the ROTA 3 gas pipeline.</p>
-        </div>
-    </section>
+<script>
+    const years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024];
 
-    <footer>
-        <p><strong>Open Licence:</strong> Unless otherwise noted, all content on this site is licensed under the Creative Commons Attribution License (CC BY-SA).</p>
-        <p>&copy; 2026 Arman Adabi | Financial Analysis Project</p>
-    </footer>
+    // Chart 1: Total Energy Supply (Line)
+    new Chart(document.getElementById('supplyChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: [
+                { label: 'Oil and oil products', data: [3695638, 3753647, 3649122, 3481686, 3591120, 3650404, 3718219, 3903852, 4034146, 4024338, 4417658, 4572422, 4837092, 5064061, 5221350, 4858254, 4592908, 4648530, 4356116, 4412700, 4164567, 4504859, 4697278, 4809596, 4765356], borderColor: '#1d1d1f', tension: 0.3, fill: false, borderWidth: 2 },
+                { label: 'Biofuels and waste', data: [1961343, 2027632, 2210178, 2405347, 2573364, 2664627, 2795524, 3038683, 3298102, 3199626, 3425860, 3261180, 3277966, 3419880, 3530397, 3673016, 3616064, 3695155, 3828100, 3944036, 4090245, 3881885, 3968936, 4291383, 4469846], borderColor: '#2997ff', tension: 0.3, fill: false, borderWidth: 3 },
+                { label: 'Hydropower', data: [1095850, 964353, 1029931, 1100217, 1154869, 1214845, 1255698, 1346454, 1330401, 1407556, 1451840, 1541998, 1495231, 1407571, 1344380, 1295074, 1371279, 1335263, 1400295, 1432357, 1426972, 1306146, 1537608, 1533585, 1518477], borderColor: '#86868b', tension: 0.3, fill: false },
+                { label: 'Natural gas', data: [349847, 442471, 547746, 564368, 695021, 739644, 774263, 785951, 938101, 751731, 1018225, 1012412, 1204434, 1418725, 1564551, 1557153, 1319999, 1399403, 1318744, 1333400, 1258435, 1538082, 1171980, 1095197, 1148731], borderColor: '#34c759', tension: 0.3, fill: false },
+                { label: 'Coal', data: [544899, 536439, 518826, 538633, 563885, 543766, 536629, 569034, 575010, 459731, 605754, 646795, 640415, 690129, 733966, 739159, 666446, 702521, 687505, 646221, 584257, 713351, 585975, 575013, 606202], borderColor: '#ff9500', tension: 0.3, fill: false }
+            ]
+        },
+        options: { responsive: true, plugins: { title: { display: true, text: 'Total Energy Supply in Brazil (2000-2024)', font: { size: 16 } } } }
+    });
+
+    // Chart 2: Domestic Production (Line)
+    new Chart(document.getElementById('productionChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: years,
+            datasets: [
+                { label: 'Primary oil', data: [2737245, 2864743, 3220158, 3335375, 3301851, 3643206, 3872621, 3968031, 4100645, 4388616, 4624443, 4734990, 4663748, 4572020, 5087260, 5475290, 5659709, 5911293, 5821520, 6246963, 6585022, 6479274, 6736710, 7582994, 7498793], borderColor: '#1d1d1f', tension: 0.3, fill: false, borderWidth: 3 },
+                { label: 'Biofuels and waste', data: [1924829, 2022562, 2203369, 2457915, 2598286, 2702296, 2880926, 3147565, 3388201, 3233271, 3499118, 3285339, 3342275, 3492075, 3577561, 3663364, 3630366, 3695139, 3860723, 3945491, 4118651, 3881694, 4011665, 4398640, 4489031], borderColor: '#2997ff', tension: 0.3, fill: false },
+                { label: 'Hydropower', data: [1095850, 964353, 1029931, 1100217, 1154869, 1214845, 1255698, 1346454, 1330401, 1407556, 1451840, 1541998, 1495231, 1407571, 1344380, 1295074, 1371279, 1335263, 1400295, 1432357, 1426972, 1306146, 1537608, 1533585, 1518477], borderColor: '#86868b', tension: 0.3, fill: false },
+                { label: 'Natural gas', data: [268386, 272695, 349931, 378122, 397102, 408140, 413599, 405206, 520001, 436974, 552255, 626244, 718683, 793797, 852749, 878971, 887914, 1004436, 928349, 972160, 904323, 909685, 848690, 856866, 851256], borderColor: '#34c759', tension: 0.3, fill: false }
+            ]
+        },
+        options: { responsive: true, plugins: { title: { display: true, text: 'Domestic Energy Production in Brazil (2000-2024)', font: { size: 16 } } } }
+    });
+
+    // Chart 3: Trade Dynamics (Bi-directional Bar Chart)
+    new Chart(document.getElementById('tradeChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: years,
+            datasets: [
+                {
+                    label: 'Imports (Inflow)',
+                    data: [2120062, 2243714, 2148139, 1966269, 2279706, 2093073, 2163787, 2483610, 2551835, 2216543, 2754965, 2858537, 2925919, 3173720, 3256456, 2980858, 2444793, 2689114, 2643813, 2579999, 2271998, 2811118, 2663577, 2556428, 2659282],
+                    backgroundColor: '#1d1d1f',
+                    borderRadius: 6,
+                    borderSkipped: false
+                },
+                {
+                    label: 'Exports (Outflow)',
+                    // Negative values to point down
+                    data: [-257470, -553404, -854032, -906309, -953299, -1030354, -1278429, -1413859, -1399760, -1546422, -1692817, -1642304, -1492278, -1223225, -1442309, -1902934, -2123005, -2549134, -2742725, -3079236, -3617642, -3293976, -3582882, -4347816, -4277514],
+                    backgroundColor: '#2997ff',
+                    borderRadius: 6,
+                    borderSkipped: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Energy Trade Dynamics: Imports vs Exports (2000-2024)',
+                    font: { size: 16 }
+                },
+                tooltip: {
+                    callbacks: {
+                        // Strip negative sign for easy reading on hover
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) { label += ': '; }
+                            if (context.parsed.y !== null) {
+                                label += Math.abs(context.parsed.y).toLocaleString() + ' TJ';
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    grid: { display: false }
+                },
+                y: {
+                    stacked: true,
+                    ticks: {
+                        // Strip negative sign from the Y-axis labels
+                        callback: function(value) {
+                            return Math.abs(value).toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
